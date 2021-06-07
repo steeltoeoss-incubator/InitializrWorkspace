@@ -1,0 +1,20 @@
+{
+	"folders": [
+        {
+            "path": "."
+        },
+        {
+            "path": "InitializrApi"
+        },
+        {
+            "path": "InitializrConfig"
+        },
+        {
+            "path": "InitializrConfigServer"
+        }
+        {
+            "path": "InitializrWeb"
+        }
+    ],
+	"settings": {}
+}

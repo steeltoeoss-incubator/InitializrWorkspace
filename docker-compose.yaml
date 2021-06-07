@@ -1,0 +1,23 @@
+version: "3"
+services:
+  initializr-izrs:
+    build: InitializrConfig
+  initializr-config-server:
+    build: InitializrConfigServer
+    volumes:
+      - ./InitializrConfig:/config
+    environment:
+      SERVER_PORT: 80
+      SPRING_PROFILES_ACTIVE: native
+      SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCHLOCATIONS: file:///config
+  initializr-api:
+    build: InitializrApi
+    entrypoint: ["./wait-for-it", "initializr-config-server:80", "--", "dotnet", "Steeltoe.InitializrApi.dll"]
+    environment:
+      DOTNET_ENVIRONMENT: Development
+  initializr-web:
+    build: InitializrWeb
+  initializr-ingress:
+    build: InitializrIngress
+    ports:
+      - "8080:80"

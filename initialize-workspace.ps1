@@ -32,7 +32,13 @@ Foreach ($project in $projects) {
         New-Item -ItemType SymbolicLink -Path "$projectPath" -Target "../$project" | Out-Null
         continue
     }
-    $projectUrl = "$($ssh ? "git@" : "https://")github.com:/SteeltoeOSS/$project"
+    if ($Ssh) {
+        $projectUrl = "git@"
+    }
+    else {
+        $projectUrl = "https://"
+    }
+    $projectUrl += "github.com:/SteeltoeOSS/$project"
     "cloning $projectUrl"
     git clone $projectUrl 2>&1 | Out-Null
 }

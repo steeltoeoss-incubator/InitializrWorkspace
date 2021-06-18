@@ -1,5 +1,11 @@
 version: "3"
 services:
+  net-core-tool-service:
+    build: NetCoreToolService
+    environment:
+      DOTNET_ENVIRONMENT: Development
+    ports:
+      - "1922:80"
   initializr-izrs:
     build: InitializrConfig
   initializr-config-server:
@@ -14,7 +20,9 @@ services:
     build: InitializrApi
     entrypoint: ["./wait-for-it", "initializr-config-server:80", "--", "dotnet", "Steeltoe.InitializrApi.dll"]
     environment:
-      DOTNET_ENVIRONMENT: Development
+      DOTNET_ENVIRONMENT: "Docker"
+    ports:
+      - "1920:80"
   initializr-web:
     build: InitializrWeb
   initializr-ingress:

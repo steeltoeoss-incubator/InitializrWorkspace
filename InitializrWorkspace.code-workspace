@@ -17,6 +17,12 @@
         },
         {
             "path": "InitializrWeb"
+        },
+        {
+            "path": "NetCoreToolService"
+        },
+        {
+            "path": "NetCoreToolTemplates"
         }
     ],
 	"settings": {}

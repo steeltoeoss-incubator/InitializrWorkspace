@@ -6,8 +6,6 @@ services:
       DOTNET_ENVIRONMENT: Development
     ports:
       - "1922:80"
-  initializr-izrs:
-    build: InitializrConfig
   initializr-config-server:
     build: InitializrConfigServer
     volumes:

@@ -29,3 +29,5 @@ services:
     build: InitializrIngress
     ports:
       - "8080:80"
+  initializr-cli:
+    build: InitializrCli

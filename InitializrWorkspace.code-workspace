@@ -7,6 +7,9 @@
             "path": "InitializrApi"
         },
         {
+            "path": "InitializrCli"
+        },
+        {
             "path": "InitializrConfig"
         },
         {

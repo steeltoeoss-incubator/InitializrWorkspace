@@ -18,7 +18,7 @@ Param (
 )
 
 $baseDir = "$PSScriptRoot"
-$projects = "NetCoreToolTemplates", "NetCoreToolService", "InitializrConfig", "InitializrConfigServer", "InitializrApi", "InitializrWeb"
+$projects = "SteeltoeOSS/NetCoreToolTemplates", "SteeltoeOSS/NetCoreToolService", "SteeltoeOSS/InitializrConfig", "SteeltoeOSS/InitializrConfigServer", "SteeltoeOSS/InitializrApi", "SteeltoeOSS/InitializrWeb", "steeltoeoss-incubator/InitializrCli"
 
 Set-Location -Path $baseDir
 Foreach ($project in $projects) {

@@ -22,8 +22,7 @@ services:
     build: InitializrApi
     entrypoint: ["./wait-for-it", "initializr-config-server:80", "--", "dotnet", "Steeltoe.InitializrApi.dll"]
     environment:
-      DOTNET_ENVIRONMENT: Development
-      # DOTNET_ENVIRONMENT: Staging
+      DOTNET_ENVIRONMENT: Docker
     ports:
       - "1920:80"
   initializr-web:

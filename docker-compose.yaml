@@ -4,6 +4,7 @@ services:
     build: NetCoreToolService
     environment:
       DOTNET_ENVIRONMENT: Development
+      # DOTNET_ENVIRONMENT: Staging
     ports:
       - "1922:80"
   initializr-config-server:
@@ -12,6 +13,7 @@ services:
       - ./InitializrConfig:/config
     environment:
       SERVER_PORT: 80
+      # comment out following 2 lines to use GitHub config
       SPRING_PROFILES_ACTIVE: native
       SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCHLOCATIONS: file:///config
     ports:
@@ -20,7 +22,8 @@ services:
     build: InitializrApi
     entrypoint: ["./wait-for-it", "initializr-config-server:80", "--", "dotnet", "Steeltoe.InitializrApi.dll"]
     environment:
-      DOTNET_ENVIRONMENT: "Docker"
+      DOTNET_ENVIRONMENT: Development
+      # DOTNET_ENVIRONMENT: Staging
     ports:
       - "1920:80"
   initializr-web:

@@ -33,12 +33,12 @@ Foreach ($project in $projects) {
         continue
     }
     if ($Ssh) {
-        $projectUrl = "git@"
+        $projectUrl = "git@github.com:"
     }
     else {
-        $projectUrl = "https://"
+        $projectUrl = "https://github.com"
     }
-    $projectUrl += "github.com:/SteeltoeOSS/$project"
+    $projectUrl += "/$project"
     "cloning $projectUrl"
     git clone $projectUrl 2>&1 | Out-Null
 }

@@ -1,12 +1,5 @@
 version: "3"
 services:
-  net-core-tool-service:
-    build: NetCoreToolService
-    environment:
-      DOTNET_ENVIRONMENT: Development
-      # DOTNET_ENVIRONMENT: Staging
-    ports:
-      - "1922:80"
   initializr-config-server:
     build: InitializrConfigServer
     volumes:
@@ -18,9 +11,20 @@ services:
       SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCHLOCATIONS: file:///config
     ports:
       - "8888:80"
+  net-core-tool-service:
+    build: NetCoreToolService
+    environment:
+      DOTNET_ENVIRONMENT: Docker
+    ports:
+      - "1922:80"
   initializr-api:
     build: InitializrApi
-    entrypoint: ["./wait-for-it", "initializr-config-server:80", "--", "dotnet", "Steeltoe.InitializrApi.dll"]
+    entrypoint:
+      - "./wait-for-it"
+      - "initializr-config-server:80"
+      - "--"
+      - "dotnet"
+      - "Steeltoe.InitializrApi.dll"
     environment:
       DOTNET_ENVIRONMENT: Docker
     ports:
@@ -31,5 +35,3 @@ services:
     build: InitializrIngress
     ports:
       - "8080:80"
-  initializr-cli:
-    build: InitializrCli

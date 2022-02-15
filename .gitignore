@@ -1,7 +1,7 @@
-/InitializrApi
 /InitializrCli
 /InitializrConfig
 /InitializrConfigServer
+/InitializrService
 /InitializrWeb
 /NetCoreToolService
 /NetCoreToolTemplates

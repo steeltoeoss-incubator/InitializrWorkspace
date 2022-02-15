@@ -17,14 +17,14 @@ services:
       DOTNET_ENVIRONMENT: Docker
     ports:
       - "1922:80"
-  initializr-api:
-    build: InitializrApi
+  initializr-service:
+    build: InitializrService
     entrypoint:
       - "./wait-for-it"
       - "initializr-config-server:80"
       - "--"
       - "dotnet"
-      - "Steeltoe.InitializrApi.dll"
+      - "Steeltoe.InitializrService.dll"
     environment:
       DOTNET_ENVIRONMENT: Docker
     ports:

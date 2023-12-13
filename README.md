@@ -1,4 +1,5 @@
-  # Steeltoe Initializr Workspace
+  # Steeltoe Initializr Workspace is no longer actively maintained by VMware, Inc.
+
 
   ## Setup
 
